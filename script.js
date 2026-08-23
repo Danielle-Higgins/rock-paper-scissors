@@ -19,4 +19,25 @@ function getComputerChoice() {
   }
 }
 
-console.log(getComputerChoice());
+/**
+ * Create function to get the human choice
+ *      Create empty string
+ *      While true, prompt the user for rock, paper, or scissors and convert to lowercase
+ *          if the choice is rock, paper, or scissors, break out of loop
+ *      return the choice
+ */
+
+// Function that takes the user choice and returns it
+function getHumanChoice() {
+  let choice = "";
+
+  while (true) {
+    choice = prompt("Enter rock, paper, or scissors:", "").toLowerCase();
+
+    if (choice === "rock" || choice === "paper" || choice === "scissors") break;
+  }
+  return choice;
+}
+
+// console.log(getComputerChoice());
+// console.log(getHumanChoice());
