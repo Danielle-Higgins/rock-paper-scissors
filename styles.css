@@ -12,8 +12,15 @@ html {
 
 body {
   background-color: rgb(248, 249, 255);
-  padding: 20px 0;
+  padding: 0px 0px 20px;
   font-family: "Plus Jakarta Sans", Arial, Helvetica, sans-serif;
+}
+
+.section {
+  padding: 20px 10px;
+  max-width: 55%;
+  margin: auto;
+  border: 2px solid transparent;
 }
 
 /* Header Styles */
@@ -21,10 +28,77 @@ body {
   text-align: center;
   border-bottom: 1px solid transparent;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 0 10px 20px;
+  padding: 20px 10px;
 }
 
 .header h1 {
   font-size: 25px;
   margin-bottom: 3px;
+}
+
+/* Description Styles */
+.description {
+  text-align: center;
+}
+
+.description h2 {
+  margin-bottom: 8px;
+}
+
+/* Points Card Styles */
+.points-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow:
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.points-card .player-points,
+.points-card .computer-points {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.points-card .computer-points {
+  flex-direction: row-reverse;
+}
+
+.points-card .player-points .player-icon,
+.points-card .computer-points .computer-icon {
+  background-color: rgb(231, 238, 254);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.points-card .player-points i,
+.points-card .computer-points i {
+  color: #4f46e5;
+  font-size: 25px;
+}
+
+.points-card .player-points .player,
+.points-card .computer-points .computer {
+  display: block;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.points-card .player-points #player-score,
+.points-card .computer-points #comp-score {
+  font-size: 40px;
+  color: #4f46e5;
+  font-weight: 800;
+}
+
+.points-card .vs {
+  background-color: rgb(231, 238, 254);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
 }

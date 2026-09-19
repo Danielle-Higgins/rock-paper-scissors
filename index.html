@@ -4,13 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors Arena</title>
+
     <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <script src="./script.js" type="module" defer></script>
   </head>
   <body>
     <div class="header">
       <h1>Rock, Paper, Scissors</h1>
       <span>Tactile Reflex Mini-Game Arena</span>
+    </div>
+
+    <div class="section description">
+      <h2>Choose your move to battle the computer</h2>
+      <p>Simple mechanics, instant reflexes. First to 5 rules the table.</p>
+    </div>
+
+    <div class="section points-card">
+      <div class="player-points">
+        <div class="player-icon"><i class="fa-solid fa-user"></i></div>
+        <div>
+          <span class="player">Player</span>
+          <span id="player-score">0</span>
+        </div>
+      </div>
+
+      <span class="vs">VS</span>
+
+      <div class="computer-points">
+        <div class="computer-icon"><i class="fa-solid fa-robot"></i></div>
+        <div>
+          <span class="computer">Computer</span>
+          <span id="comp-score">0</span>
+        </div>
+      </div>
     </div>
   </body>
 </html>
