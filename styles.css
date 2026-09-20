@@ -76,8 +76,7 @@ body {
   border-radius: 10px;
 }
 
-.points-card .player-points i,
-.points-card .computer-points i {
+.points-card i {
   color: #4f46e5;
   font-size: 25px;
 }
@@ -101,4 +100,66 @@ body {
   padding: 10px;
   border-radius: 10px;
   font-weight: 600;
+}
+
+/* Results Card Styles */
+.results-card {
+  background-color: rgb(231, 238, 254);
+  margin-top: 30px;
+  border-radius: 15px;
+  padding: 50px 10px 30px;
+}
+
+.results-card .selection {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.results-card .choice-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.results-card .choice-container div {
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  font-size: 40px;
+  color: rgb(171, 45, 37);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.results-card .choice-container span {
+  font-weight: 600;
+}
+
+.results-card .battle-icon {
+  font-size: 30px;
+  background-color: rgb(214, 228, 252);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.results-card .result {
+  margin-top: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.results-card .result p {
+  background-color: rgb(214, 228, 252);
+  max-width: 60%;
+  margin: auto;
+  padding: 15px;
+  border-radius: 15px;
 }
