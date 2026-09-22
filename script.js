@@ -7,6 +7,7 @@ const roundWinner = document.querySelector("#round-winner");
 const playerScore = document.querySelector("#player-score");
 const computerScore = document.querySelector("#comp-score");
 const winner = document.querySelector("#overall-winner");
+const playAgain = document.querySelector("#play-again");
 
 let rounds = 0;
 let userScore = 0;
@@ -87,3 +88,6 @@ weapons.forEach((weapon) => {
     }
   });
 });
+
+// reload the page
+playAgain.addEventListener("click", () => window.location.reload());
