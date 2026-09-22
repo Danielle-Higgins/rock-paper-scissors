@@ -1,3 +1,17 @@
+const weapons = document.querySelectorAll(".btn-container div");
+const userEmoji = document.querySelector("#user-choice");
+const compEmoji = document.querySelector("#comp-choice");
+const userSelectText = document.querySelector("#user-selection");
+const compSelectText = document.querySelector("#comp-selection");
+const roundWinner = document.querySelector("#round-winner");
+const playerScore = document.querySelector("#player-score");
+const computerScore = document.querySelector("#comp-score");
+const winner = document.querySelector("#overall-winner");
+
+let rounds = 0;
+let userScore = 0;
+let compScore = 0;
+
 function getComputerChoice() {
   const compChoice = Math.floor(Math.random() * 3) + 1;
 
@@ -16,49 +30,35 @@ function setEmoji(choice) {
   else return "✌️";
 }
 
-function playGame() {
-  let humanScore = 0;
-  let computerScore = 0;
-
-  // Function that plays a single round
-  function playRound(humanChoice, computerChoice) {
-    if (
-      (humanChoice === "rock" && computerChoice === "rock") ||
-      (humanChoice === "paper" && computerChoice === "paper") ||
-      (humanChoice === "scissors" && computerChoice === "scissors")
-    ) {
-      return `You chose ${humanChoice}. Computer chose ${computerChoice}. It's a Tie!`;
-    } else if (
-      (humanChoice === "rock" && computerChoice === "scissors") ||
-      (humanChoice === "paper" && computerChoice === "rock") ||
-      (humanChoice === "scissors" && computerChoice === "paper")
-    ) {
-      humanScore++;
-      return `You chose ${humanChoice}. Computer chose ${computerChoice}. You Win!`;
-    } else {
-      computerScore++;
-      return `You chose ${humanChoice}. Computer chose ${computerChoice}. Computer Wins!`;
-    }
-  }
-
-  for (let i = 0; i < 5; i++) {
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
-  }
-
-  if (humanScore === computerScore) {
-    console.log("It's a Tie! No one Wins!");
-  } else if (humanScore > computerScore) {
-    console.log("You are the Winner! Congrats!");
+function playRound(humanChoice, computerChoice) {
+  if (
+    (humanChoice === "rock" && computerChoice === "rock") ||
+    (humanChoice === "paper" && computerChoice === "paper") ||
+    (humanChoice === "scissors" && computerChoice === "scissors")
+  ) {
+    return "This Round ends in an Tie!";
+  } else if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    userScore++;
+    return "You Win this Round!";
   } else {
-    console.log("The Computer Wins! Better luck next time!");
+    compScore++;
+    return "The Computer Wins this Round!";
   }
 }
 
-const weapons = document.querySelectorAll(".btn-container div");
-const userEmoji = document.querySelector("#user-choice");
-const compEmoji = document.querySelector("#comp-choice");
-const userSelectText = document.querySelector("#user-selection");
-const compSelectText = document.querySelector("#comp-selection");
+function getWinner() {
+  if (userScore === compScore) {
+    return "It's a Tie! No one Wins this Game!";
+  } else if (userScore > compScore) {
+    return "You Won the Game! Congrats!";
+  } else {
+    return "The Computer Wins the Game! Better luck next time!";
+  }
+}
 
 weapons.forEach((weapon) => {
   weapon.addEventListener("click", () => {
@@ -69,5 +69,21 @@ weapons.forEach((weapon) => {
     compEmoji.textContent = setEmoji(compChoice);
     userSelectText.textContent = userChoice;
     compSelectText.textContent = compChoice;
+
+    roundWinner.textContent = playRound(userChoice, compChoice);
+    playerScore.textContent = userScore;
+    computerScore.textContent = compScore;
+
+    rounds++;
+    if (rounds === 5) {
+      // make each div unclickable
+      weapons.forEach((weapon) => {
+        weapon.style.pointerEvents = "none";
+        weapon.style.backgroundColor = "lightgrey";
+      });
+
+      winner.hidden = false;
+      winner.textContent = getWinner();
+    }
   });
 });

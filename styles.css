@@ -178,6 +178,10 @@ body {
   border-radius: 15px;
 }
 
+.results-card .result p#overall-winner {
+  margin-top: 10px;
+}
+
 /* Weapons Styles */
 .weapons p {
   font-weight: 600;
