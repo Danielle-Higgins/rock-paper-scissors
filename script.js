@@ -9,7 +9,6 @@ const computerScore = document.querySelector("#comp-score");
 const winner = document.querySelector("#overall-winner");
 const playAgain = document.querySelector("#play-again");
 
-let rounds = 0;
 let userScore = 0;
 let compScore = 0;
 
@@ -52,13 +51,8 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function getWinner() {
-  if (userScore === compScore) {
-    return "It's a Tie! No one Wins this Game!";
-  } else if (userScore > compScore) {
-    return "You Won the Game! Congrats!";
-  } else {
-    return "The Computer Wins the Game! Better luck next time!";
-  }
+  if (userScore === 5) return "You Won the Game! Congrats!";
+  else return "The Computer Wins the Game! Better luck next time!";
 }
 
 weapons.forEach((weapon) => {
@@ -75,8 +69,7 @@ weapons.forEach((weapon) => {
     playerScore.textContent = userScore;
     computerScore.textContent = compScore;
 
-    rounds++;
-    if (rounds === 5) {
+    if (userScore === 5 || compScore === 5) {
       // make each div unclickable
       weapons.forEach((weapon) => {
         weapon.style.pointerEvents = "none";
